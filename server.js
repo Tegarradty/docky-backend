@@ -1,6 +1,7 @@
+require('dotenv').config();
 const http = require('http');
 const websocketService = require('./src/services/websocketService');
-require('dotenv').config();
+
 const app = require('./app.js');
 const connectDB = require('./src/config/db');
 
