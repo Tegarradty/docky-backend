@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # 1. Database MongoDB
   db:
-    image: mongo:6
+    image: mongo:4.4
     container_name: docky-mongo
     ports:
       - "27017:27017"
@@ -17,7 +17,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - MONGODB_URI=${MONGODB_URI}
+      - MONGO_URI=${MONGO_URI}
       - PORT=${PORT}
       - JWT_SECRET=${JWT_SECRET}
       - CLIENT_URL=${CLIENT_URL}
