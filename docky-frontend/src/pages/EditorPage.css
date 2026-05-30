@@ -1,0 +1,400 @@
+.editor-page {
+  min-height: 100vh;
+  background: #f3f4f6;
+  padding: 28px;
+  font-family: Arial, sans-serif;
+}
+
+/* TOPBAR */
+
+.editor-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.editor-topbar h1 {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1.1;
+}
+
+.editor-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.editor-actions button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.reset-btn {
+  background: #dc2626;
+}
+
+/* LAYOUT */
+
+.editor-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 22px;
+  align-items: start;
+}
+
+/* SIDEBAR */
+
+.doc-list {
+  background: white;
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.doc-search-input {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  background: #fff;
+  box-sizing: border-box;
+  display: block;
+}
+
+.doc-search-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.empty-docs {
+  margin: 0;
+  padding: 8px 4px;
+  color: #374151;
+  font-size: 15px;
+}
+
+.doc-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.doc-item:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.doc-item.active {
+  background: #dbeafe;
+  border-color: #60a5fa;
+}
+
+.doc-title-text {
+  flex: 1;
+  font-size: 14px;
+  color: #111827;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.doc-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.doc-action-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  opacity: 0.75;
+}
+
+.doc-action-btn:hover {
+  background: #e5e7eb;
+  opacity: 1;
+}
+
+.rename-input {
+  flex: 1;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.rename-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* EDITOR */
+
+.editor-main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.doc-title-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
+  background: #fff;
+}
+
+.doc-title-input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.editor-area {
+  position: relative;
+  background: white;
+  border-radius: 18px;
+  padding: 24px;
+  min-height: 520px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* STATUS */
+
+.editor-status {
+  display: flex;
+  align-items: center;
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
+.editor-status span {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.status-idle {
+  color: #6b7280;
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+
+.status-saving {
+  color: #2563eb;
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+.status-saved {
+  color: #16a34a;
+  background: #ecfdf5;
+  border-color: #bbf7d0;
+}
+
+/* EMPTY STATE */
+
+.editor-empty-state {
+  min-height: 470px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.editor-empty-state h2 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.editor-empty-state p {
+  margin: 0;
+  max-width: 420px;
+  font-size: 16px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+/* CODE BLOCK */
+
+.code-block-tool {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.code-block-header {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.code-block-textarea {
+  width: 100%;
+  min-height: 200px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 14px 16px;
+  outline: none;
+  resize: vertical;
+  background: #fff;
+  color: #111827;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  box-sizing: border-box;
+  display: block;
+}
+
+.code-block-textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* EDITORJS OVERRIDE */
+
+.ce-block__content,
+.ce-toolbar__content,
+.codex-editor__redactor {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.cdx-block {
+  max-width: 100% !important;
+}
+
+.codex-editor {
+  width: 100%;
+}
+
+.editor-area .code-block-tool {
+  width: 100%;
+  max-width: 100% !important;
+  margin: 0;
+}
+
+.editor-area .code-block-textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* TRANSITIONS */
+
+.editor-actions button,
+.doc-action-btn,
+.doc-search-input,
+.doc-title-input,
+.rename-input,
+.code-block-textarea {
+  transition: all 0.2s ease;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .editor-page {
+    padding: 20px;
+  }
+
+  .editor-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .editor-topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .editor-actions {
+    justify-content: flex-end;
+  }
+
+  .editor-empty-state h2 {
+    font-size: 28px;
+  }
+
+  .editor-area {
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 600px) {
+  .editor-page {
+    padding: 16px;
+  }
+
+  .editor-topbar h1 {
+    font-size: 28px;
+  }
+
+  .editor-actions {
+    flex-direction: column;
+  }
+
+  .editor-actions button,
+  .reset-btn {
+    width: 100%;
+  }
+
+  .doc-list,
+  .editor-area {
+    border-radius: 18px;
+  }
+
+  .doc-title-input {
+    font-size: 15px;
+  }
+
+  .editor-empty-state {
+    min-height: 360px;
+    padding: 24px;
+  }
+
+  .editor-empty-state h2 {
+    font-size: 24px;
+  }
+
+  .code-block-textarea {
+    min-height: 180px;
+  }
+}
