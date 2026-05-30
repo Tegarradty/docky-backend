@@ -1,0 +1,14 @@
+# Menggunakan Linux Alpine yang ukurannya sangat kecil & ringan
+FROM alpine:3.18
+
+# Install Python 3 dan Node.js
+RUN apk add --no-cache python3 nodejs
+
+# Buat user khusus (bukan root) agar user tidak bisa meretas sistem
+RUN adduser -D sandboxuser
+USER sandboxuser
+
+WORKDIR /app
+
+# Perintah default (akan ditimpa saat container dijalankan oleh server)
+CMD ["sh"]

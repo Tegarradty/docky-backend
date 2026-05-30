@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # 1. Database MongoDB
+  db:
+    image: mongo:4.4
+    container_name: docky-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - docky-db-data:/data/db
+
+  # 2. Aplikasi Backend DOCKY
+  api:
+    build: .
+    container_name: docky-backend
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://db:27017/docky_db
+      - PORT=${PORT}
+      - JWT_SECRET=${JWT_SECRET}
+      - CLIENT_URL=${CLIENT_URL}
+    volumes:
+      # PENTING: Menyambungkan Docker utama agar backend bisa membuat Sandbox
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Menyimpan foto/aset agar tidak hilang saat server di-restart
+      - ./uploads:/app/uploads
+    depends_on:
+      - db
+
+volumes:
+  docky-db-data:
